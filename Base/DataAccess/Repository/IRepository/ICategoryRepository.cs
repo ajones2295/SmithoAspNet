@@ -4,7 +4,9 @@ namespace DataAccess.Repository.IRepository
 {
     public interface ICategoryRepository : IRepository<Category>
     {
-        void Update(Category category);
-        string GetName(int? id);
+        Task Create(Category category);
+        Task Update(Category category);
+        Task Delete(int id);
+        Task<string> GetName(int? id);
     }
 }

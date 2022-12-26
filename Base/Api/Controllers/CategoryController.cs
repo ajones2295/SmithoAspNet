@@ -36,8 +36,7 @@ namespace Api.Controllers
                 return BadRequest(ModelState);
             }
             Category category = _mapper.Map<Category>(categoryVM);
-            _unitOfWork.Category.Add(category);
-            await _unitOfWork.Save();
+            await _unitOfWork.Category.Create(category);
             return Ok();
         }
 
@@ -85,9 +84,7 @@ namespace Api.Controllers
             }
 
             _mapper.Map(categoryVM, category);
-            _unitOfWork.Category.Update(category);
-            await _unitOfWork.Save();
-
+            await _unitOfWork.Category.Update(category);
             return NoContent();
         }
 
@@ -111,7 +108,6 @@ namespace Api.Controllers
             }
 
             await _unitOfWork.Category.Delete(id);
-            await _unitOfWork.Save();
             return NoContent();
         }
 
