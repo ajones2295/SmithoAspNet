@@ -24,17 +24,17 @@ namespace Mvc.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Upsert(int? id)
+        public async Task<IActionResult> Upsert(int? id)
         {
             ProductVM productVM = new()
             {
                 Product = new(),
-                CategoryList = _unitOfWork.Category.GetAll().Select(i => new SelectListItem
+                CategoryList = _unitOfWork.Category.GetAll().Result.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()
                 }),
-                CoverTypeList = _unitOfWork.CoverType.GetAll().Select(i => new SelectListItem
+                CoverTypeList = _unitOfWork.CoverType.GetAll().Result.Select(i => new SelectListItem
                 {
                     Text = i.Name,
                     Value = i.Id.ToString()

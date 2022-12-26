@@ -26,7 +26,7 @@ namespace Mvc.ViewComponents
                 else
                 {
                     HttpContext.Session.SetInt32(SD.SessionCart,
-                        _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
+                        _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Result.ToList().Count);
                     return View(HttpContext.Session.GetInt32(SD.SessionCart));
                 }
             }

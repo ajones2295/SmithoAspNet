@@ -28,12 +28,12 @@ namespace Mvc.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult Details(int orderId)
+        public async Task<IActionResult> Details(int orderId)
         {
             OrderVM = new OrderVM()
             {
                 OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == orderId, includeProperties: "ApplicationUser"),
-                OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderId == orderId, includeProperties: "Product"),
+                OrderDetail = await _unitOfWork.OrderDetail.GetAll(u => u.OrderId == orderId, includeProperties: "Product"),
             };
             return View(OrderVM);
         }
@@ -41,10 +41,10 @@ namespace Mvc.Areas.Admin.Controllers
         [ActionName("Details")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Details_PAY_NOW()
+        public  async Task<IActionResult> Details_PAY_NOW()
         {
             OrderVM.OrderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id, includeProperties: "ApplicationUser");
-            OrderVM.OrderDetail = _unitOfWork.OrderDetail.GetAll(u => u.OrderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
+            OrderVM.OrderDetail = await _unitOfWork.OrderDetail.GetAll(u => u.OrderId == OrderVM.OrderHeader.Id, includeProperties: "Product");
 
             //stripe settings 
             var domain = "https://localhost:44300/";
@@ -196,21 +196,21 @@ namespace Mvc.Areas.Admin.Controllers
 
         #region
         [HttpGet]
-        public IActionResult GetAll(string status)
+        public async Task<IActionResult> GetAll(string status)
         {
             IEnumerable<OrderHeader> orderHeaders;
-            orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+            orderHeaders = await _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
 
 
             if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
             {
-                orderHeaders = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
+                orderHeaders = await _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser");
             }
             else
             {
                 var claimsIdentity = (ClaimsIdentity)User.Identity;
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                orderHeaders = _unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == claim.Value, includeProperties: "ApplicationUser");
+                orderHeaders = await _unitOfWork.OrderHeader.GetAll(u => u.ApplicationUserId == claim.Value, includeProperties: "ApplicationUser");
             }
 
             switch (status)

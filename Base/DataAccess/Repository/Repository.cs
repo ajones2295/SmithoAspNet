@@ -23,7 +23,7 @@ namespace DataAccess.Repository
             _dbSet.Add(entity);
         }
 
-        public IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
             if (filter != null)

@@ -20,9 +20,9 @@ namespace Mvc.Areas.Customer.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
+            IEnumerable<Product> productList = await  _unitOfWork.Product.GetAll(includeProperties: "Category,CoverType");
             return View(productList);
         }
 
@@ -41,7 +41,7 @@ namespace Mvc.Areas.Customer.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public IActionResult Details(ShoppingCart shoppingCart)
+        public async Task<IActionResult> Details(ShoppingCart shoppingCart)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -53,9 +53,9 @@ namespace Mvc.Areas.Customer.Controllers
             if (cartFromDb == null)
             {
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
-                _unitOfWork.Save();
-                HttpContext.Session.SetInt32(SD.SessionCart,
-                _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).ToList().Count);
+                await _unitOfWork.Save();
+                 HttpContext.Session.SetInt32(SD.SessionCart,
+                _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Result.ToList().Count);
 
             }
             else

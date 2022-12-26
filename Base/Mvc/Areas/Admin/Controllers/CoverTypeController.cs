@@ -14,9 +14,9 @@ namespace Mvc.Areas.Admin.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<CoverType> objCoverTypeList = _unitOfWork.CoverType.GetAll();
+            IEnumerable<CoverType> objCoverTypeList = await _unitOfWork.CoverType.GetAll();
             return View(objCoverTypeList);
         }
 

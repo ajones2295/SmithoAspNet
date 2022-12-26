@@ -28,7 +28,7 @@ namespace Mvc.Areas.Customer.Controllers
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -36,7 +36,7 @@ namespace Mvc.Areas.Customer.Controllers
             ShoppingCartVM = new ShoppingCartVM()
             {
                 ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
-                includeProperties: "Product"),
+                includeProperties: "Product").Result,
                 OrderHeader = new()
             };
             foreach (var cart in ShoppingCartVM.ListCart)
@@ -48,7 +48,7 @@ namespace Mvc.Areas.Customer.Controllers
             return View(ShoppingCartVM);
         }
 
-        public IActionResult Summary()
+        public async Task<IActionResult> Summary()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
@@ -56,7 +56,7 @@ namespace Mvc.Areas.Customer.Controllers
             ShoppingCartVM = new ShoppingCartVM()
             {
                 ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
-                includeProperties: "Product"),
+                includeProperties: "Product").Result,
                 OrderHeader = new()
             };
 
@@ -80,13 +80,13 @@ namespace Mvc.Areas.Customer.Controllers
         [HttpPost]
         [ActionName("Summary")]
         [ValidateAntiForgeryToken]
-        public IActionResult SummaryPOST()
+        public async Task<IActionResult> SummaryPOST()
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
             ShoppingCartVM.ListCart = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value,
-               includeProperties: "Product");
+               includeProperties: "Product").Result;
 
 
             ShoppingCartVM.OrderHeader.OrderDate = DateTime.Now;
@@ -193,7 +193,7 @@ namespace Mvc.Areas.Customer.Controllers
             }
 
             //    _emailSender.SendEmailAsync(orderHeader.ApplicationUser.Email, "New Order - Bulky Book", "<p>New Order Created</p>");
-            List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).ToList();
+            List<ShoppingCart> shoppingCarts = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == orderHeader.ApplicationUserId).Result.ToList();
             HttpContext.Session.Clear();
             _unitOfWork.ShoppingCart.RemoveRange(shoppingCarts);
             _unitOfWork.Save();
@@ -215,7 +215,7 @@ namespace Mvc.Areas.Customer.Controllers
             if (cart.Count <= 1)
             {
                 _unitOfWork.ShoppingCart.Remove(cart);
-                var count = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count - 1;
+                var count = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Result.ToList().Count - 1;
                 HttpContext.Session.SetInt32(SD.SessionCart, count);
             }
             else
@@ -226,12 +226,12 @@ namespace Mvc.Areas.Customer.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Remove(int cartId)
+        public async Task<IActionResult> Remove(int cartId)
         {
             var cart = _unitOfWork.ShoppingCart.GetFirstOrDefault(u => u.Id == cartId);
             _unitOfWork.ShoppingCart.Remove(cart);
-            _unitOfWork.Save();
-            var count = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).ToList().Count;
+            await _unitOfWork.Save();
+            var count = _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == cart.ApplicationUserId).Result.ToList().Count;
             HttpContext.Session.SetInt32(SD.SessionCart, count);
             return RedirectToAction(nameof(Index));
         }
