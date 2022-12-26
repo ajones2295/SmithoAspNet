@@ -38,7 +38,7 @@ namespace DataAccess.Repository
                     query = query.Include(includeProp);
                 }
             }
-            return query.ToList();
+            return query.ToList(); 
         }
 
         public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null, bool tracked = true)

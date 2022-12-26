@@ -1,0 +1,101 @@
+﻿@using Models.DataModels
+@model Event
+
+@{
+    ViewData["Title"] = "Events | Smithovision";
+    Layout = "~/Views/Shared/_Calendar.cshtml";
+}
+
+<br />
+<div id='calendar'></div>
+
+<br />
+<button id="btnGetEvents" class="btn btn-default btn-sm pull-left" style="margin-right:5px;">Get Events</button>
+<button id="btnCreateEvent" class="btn btn-default btn-sm pull-right" style="margin-right:5px;">Create</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+            </div>
+            <div class="modal-body">
+                <button id="btnDelete" class="btn btn-default btn-sm pull-right"><span class=" glyphicon glyphicon-remove"></span>Remove</button>
+                <button id="btnEdit" class="btn btn-default btn-sm pull-right" style="margin-right:5px;"><span class=" glyphicon glyphicon-pencil"></span>Edit</button>
+                <p id="pDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModalSave" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="CreateEvent">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StartTime" class="control-label"></label>
+                        <input asp-for="StartTime" class="form-control" />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EndTime" class="control-label"></label>
+                        <input asp-for="EndTime" class="form-control" />
+                        <span asp-validation-for="EndTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="IsFullDay" /> @Html.DisplayNameFor(model => model.IsFullDay)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <input asp-for="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

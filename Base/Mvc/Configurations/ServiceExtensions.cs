@@ -87,6 +87,11 @@ namespace Mvc.Configurations
             });
         }
 
+        public static void ConfigureDistributedMemoryCache(this IServiceCollection services)
+        {
+            services.AddDistributedMemoryCache();
+        }
+
         public static void ConfigureSession(this IServiceCollection services)
         {
             services.AddSession(options =>

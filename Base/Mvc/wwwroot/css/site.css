@@ -1,18 +1,32 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+
+.message {
+    color: steelblue;
+    width: 800px
+}
+
+root {
+    --bs-color-a: #364FD6;
+    --bs-color-b: #D66640;
+    --bs-color-c: #D6A815;
+    --bs-color-d: #20D6AD;
+    --bs-color-e: #A33610;
 }

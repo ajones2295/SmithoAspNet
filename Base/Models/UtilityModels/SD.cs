@@ -12,9 +12,26 @@
 
         public const string Role_User_Visitor = "User";
         public const string Role_User_Client = "Client";
+        public const string Role_User_Comp = "Company";
+        public const string Role_Employee = "Employee";
+        public const string Role_User_Indi = "Individual";
         public const string Role_Admin = "Admin";
         public const string Success = "Success";
         public const string Error = "Error";
+
+        public const string StatusPending = "Pending";
+        public const string StatusApproved = "Approved";
+        public const string StatusInProcess = "Processing";
+        public const string StatusShipped = "Shipped";
+        public const string StatusCancelled = "Cancelled";
+        public const string StatusRefunded = "Refunded";
+
+        public const string PaymentStatusPending = "Pending";
+        public const string PaymentStatusApproved = "Approved";
+        public const string PaymentStatusDelayedPayment = "ApprovedForDelayedPayment";
+        public const string PaymentStatusRejected = "Rejected";
+
+        public const string SessionCart = "SessionShoppingCart";
 
         public const string DefaultUser = "dev@test.com";
         public static string DefaultName = "James Dev";
