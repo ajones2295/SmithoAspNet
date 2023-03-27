@@ -1,4 +1,4 @@
-﻿namespace Web.Configurations.MailJet
+﻿namespace Api.Configurations.MailJet
 {
     public class MailJetOptions
     {

@@ -28,7 +28,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
+
+                        <li class="nav-item btn-outline-dark">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Services" asp-action="Index">Services</a>
+                        </li>
+
+                        <li class="nav-item btn-outline-dark">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Solutions" asp-action="Index">Solutions</a>
+                        </li>
+                      
+                        <li class="nav-item btn-outline-dark">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Featured" asp-action="Index">Featured</a>
+                        </li>
+                        
+                     
+
+
+                        @*<li class="nav-item dropdown">
                             <a class="nav-link btn-outline-dark" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Browse</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Home" asp-action="IoT">IoT</a>
@@ -39,8 +55,8 @@
                                 <a class="dropdown-item" asp-controller="Home" asp-action="Products">Products</a>
                                 <a class="dropdown-item" asp-controller="Home" asp-action="Services">Services</a>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li>*@
+                        @*<li class="nav-item dropdown">
                             <a class="nav-link btn-outline-dark" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-area="Visitor" asp-controller="Home" asp-action="News">News</a>
@@ -48,19 +64,17 @@
                                 <div class="dropdown-divider" style="border-color:coral;"></div>
                                 <a class="dropdown-item" asp-area="Visitor" asp-controller="About" asp-action="Community">More</a>
                             </div>
-                        </li>
-                        <li class="nav-item btn-outline-dark">
+                        </li>*@
+                       @* <li class="nav-item btn-outline-dark">
                             <a class="nav-link" asp-area="Customer" asp-controller="Shop" asp-action="Index">Shop</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
                                 @await Component.InvokeAsync("ShoppingCart")
                             </a>
-                        </li>
-                        <li class="nav-item btn-outline-dark">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="About" asp-action="Index">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li>*@
+                        
+                        @*<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Management Console</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
@@ -71,8 +85,8 @@
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="User" asp-action="Index">Users</a>
                                 <a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles</a>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li>*@
+                        @*<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Access Checker</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="AccessChecker" asp-action="AllAccess">All Access</a>
@@ -87,7 +101,7 @@
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="AccessChecker" asp-action="FirstNameAuth">First Name Access</a>
                                 <a class="dropdown-item" asp-area="Admin" asp-controller="AccessChecker" asp-action="OnlyRell">Only Rell</a>
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>

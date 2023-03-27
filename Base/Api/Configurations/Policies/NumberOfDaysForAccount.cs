@@ -1,6 +1,6 @@
 ﻿using DataAccess.Data;
 
-namespace Web.Configurations.Policies
+namespace Api.Configurations.Policies
 {
     public class NumberOfDaysForAccount : INumberOfDaysForAccount
     {
@@ -20,5 +20,5 @@ namespace Web.Configurations.Policies
             return 0;
         }
     }
-    
+
 }

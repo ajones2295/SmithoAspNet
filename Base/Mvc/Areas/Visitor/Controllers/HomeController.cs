@@ -22,39 +22,21 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
-        public IActionResult IoT()
+        public IActionResult Services()
         {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
             return View();
         }
 
-        public IActionResult BlockChain()
+        public IActionResult Solutions()
         {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
             return View();
         }
 
-        public IActionResult DataAnalytics()
-        {
-            return View();
-        }
-
-        public IActionResult SystemEngineering()
-        {
-            return View();
-        }
-
-        public IActionResult News()
-        {
-            // CRUD operations
-            return View();
-        }
-
-        public IActionResult Events()
-        {
-            // CRUD operations
-            return View();
-        }
-
-        public IActionResult Products()
+        public IActionResult Technology()
         {
             // list(bootstrap feature class) containing produced software such as ctd, bngo, online coures, ebooks, packages, etc..
             // certain items lead to eshop others lead to build custom application
@@ -63,12 +45,14 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
-        public IActionResult Services()
+        public IActionResult Company()
         {
             // drop down list containing serives provided such as site maintenence, data analytics, etc..
             // only 3 items then see more button
             return View();
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,4 +1,4 @@
-﻿namespace Web.Configurations.Policies
+﻿namespace Api.Configurations.Policies
 {
     public interface INumberOfDaysForAccount
     {

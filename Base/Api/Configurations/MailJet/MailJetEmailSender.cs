@@ -2,7 +2,7 @@
 using Mailjet.Client.Resources;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
-namespace Web.Configurations.MailJet
+namespace Api.Configurations.MailJet
 {
     public class MailJetEmailSender : IEmailSender
     {

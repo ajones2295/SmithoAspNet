@@ -1,4 +1,6 @@
-﻿using AspNetCoreRateLimit;
+﻿using Api.Configurations.MailJet;
+using Api.Configurations.Policies;
+using AspNetCoreRateLimit;
 using DataAccess.Data;
 using DataAccess.Repository;
 using DataAccess.Repository.IRepository;
@@ -17,7 +19,6 @@ using Models.UtilityModels;
 using Serilog;
 using Serilog.Events;
 using System.Text;
-using Web.Configurations.MailJet;
 using Web.Configurations.Policies;
 
 

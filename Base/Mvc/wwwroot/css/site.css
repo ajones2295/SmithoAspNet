@@ -30,3 +30,6 @@ root {
     --bs-color-d: #20D6AD;
     --bs-color-e: #A33610;
 }
+
+
+background-image: radial-gradient(circle, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);

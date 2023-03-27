@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 
-namespace Web.Configurations.Policies
+namespace Api.Configurations.Policies
 {
     public class AdminWithOver1000DaysHandler : AuthorizationHandler<AdminWithMoreThan1000DaysRequirement>
     {

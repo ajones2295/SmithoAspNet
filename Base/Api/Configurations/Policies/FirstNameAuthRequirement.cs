@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace Web.Configurations.Policies
+namespace Api.Configurations.Policies
 {
     public class FirstNameAuthRequirement : IAuthorizationRequirement
     {

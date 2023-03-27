@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Models.IdentityModels;
 using System.Security.Claims;
 
-namespace Web.Configurations.Policies
+namespace Api.Configurations.Policies
 {
     public class FirstNameAuthHandler : AuthorizationHandler<FirstNameAuthRequirement>
     {

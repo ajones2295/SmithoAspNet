@@ -1,36 +1,36 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Mvc.Areas.Visitor.Controllers
 {
     [Area("Visitor")]
-    public class AboutController : Controller
+    public class ServicesController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
-        public IActionResult Community()
+
+        public IActionResult Application()
         {
             return View();
         }
 
-        public IActionResult Portfolio()
+        public IActionResult Design()
         {
             return View();
         }
 
-        public IActionResult FAQ()
-        {
-            return View();
-        }
-        public IActionResult Contact()
+        public IActionResult Infrastructure()
         {
             return View();
         }
 
-        [Authorize]
-        public IActionResult Privacy()
+        public IActionResult Consulting()
+        {
+            return View();
+        }
+
+        public IActionResult Analytics()
         {
             return View();
         }

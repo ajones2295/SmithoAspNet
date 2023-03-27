@@ -113,7 +113,7 @@ namespace Mvc.Areas.Customer.Controllers
             }
 
             _unitOfWork.OrderHeader.Add(ShoppingCartVM.OrderHeader);
-            _unitOfWork.Save();
+            await _unitOfWork.Save();
 
             foreach (var cart in ShoppingCartVM.ListCart)
             {
@@ -168,7 +168,7 @@ namespace Mvc.Areas.Customer.Controllers
                 var service = new SessionService();
                 Session session = service.Create(options);
                 _unitOfWork.OrderHeader.UpdateStripePaymentID(ShoppingCartVM.OrderHeader.Id, session.Id, session.PaymentIntentId);
-                _unitOfWork.Save();
+               await _unitOfWork.Save();
                 Response.Headers.Add("Location", session.Url);
                 return new StatusCodeResult(303);
             }
@@ -180,11 +180,13 @@ namespace Mvc.Areas.Customer.Controllers
 
         public IActionResult OrderConfirmation(int id)
         {
-            OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == id);
-            if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
+			
+			OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == id);
+			var service = new SessionService();
+			Session session = service.Get(orderHeader.SessionId);
+			if (orderHeader.PaymentStatus != SD.PaymentStatusDelayedPayment)
             {
-                var service = new SessionService();
-                Session session = service.Get(orderHeader.SessionId);
+                
                 if (session.PaymentStatus.ToLower() == "paid")
                 {
                     _unitOfWork.OrderHeader.UpdateStatus(id, SD.StatusApproved, SD.PaymentStatusApproved);
