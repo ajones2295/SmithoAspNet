@@ -1,6 +1,19 @@
+:root {
+    --primary-color: #191970;
+    --secondary-color: #FFD700;
+    --teritary-color: #008E4C;
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray: #DEDEDE;
+}
+
+
+
+
 html {
     font-size: 14px;
 }
+
 
 @media (min-width: 768px) {
     html {
@@ -13,23 +26,41 @@ html {
     min-height: 100%;
 }
 
+
 body {
     margin-bottom: 60px;
 }
 
+.mainBody {
+    color: var(--black);
+    background-color: var(--white);
+    margin-bottom: 60px;
+}
+
+.mainButton {
+    border-color: var(--secondary-color);
+    border-radius: 44px;
+    background-color: var(--white);
+    font-size: 28px;
+    color: var(--teritary-color);
+}
+
+.mainButton:hover, .mainButton:focus {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-radius: 44px;
+}
 
 .message {
-    color: steelblue;
-    width: 800px
+    color: var(--secondary-color);
+    width: 800px;
 }
 
-root {
-    --bs-color-a: #364FD6;
-    --bs-color-b: #D66640;
-    --bs-color-c: #D6A815;
-    --bs-color-d: #20D6AD;
-    --bs-color-e: #A33610;
+.bars {
+    background-color: var(--primary-color);
 }
 
-
-background-image: radial-gradient(circle, #ffffff, #b9b9b9, #777777, #3b3b3b, #000000);
+.accountManagement {
+    color: var(--secondary-color);
+    background-color: var(--black);
+}
