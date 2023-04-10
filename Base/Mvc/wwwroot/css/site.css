@@ -27,8 +27,22 @@ html {
 }
 
 
+
 body {
     margin-bottom: 60px;
+}
+
+.logo {
+    color: var(--teritary-color);
+    font-family:'Times New Roman', Times, serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.logo:hover, .logo:focus {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-radius: 44px;
 }
 
 .mainBody {
