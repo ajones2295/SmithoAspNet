@@ -52,6 +52,34 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
+        public IActionResult Hosting()
+        {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
+            return View();
+        }
+
+        public IActionResult Consulting()
+        {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
+            return View();
+        }
+
+        public IActionResult Analytics()
+        {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
+            return View();
+        }
+
+        public IActionResult Development()
+        {
+            // drop down list containing serives provided such as site maintenence, data analytics, etc..
+            // only 3 items then see more button
+            return View();
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

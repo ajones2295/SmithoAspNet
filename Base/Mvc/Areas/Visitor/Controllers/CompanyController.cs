@@ -21,6 +21,11 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
+        public IActionResult Community()
+        {
+            return View();
+        }
+
         public IActionResult Contact()
         {
             return View();
@@ -42,6 +47,11 @@ namespace Mvc.Areas.Visitor.Controllers
         }
 
         public IActionResult Affiliates()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }

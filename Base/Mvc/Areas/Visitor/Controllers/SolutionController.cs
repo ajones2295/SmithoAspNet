@@ -3,34 +3,30 @@
 namespace Mvc.Areas.Visitor.Controllers
 {
     [Area("Visitor")]
-    public class ServicesController : Controller
+
+    public class SolutionController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Application()
+        public IActionResult Scheduler()
         {
             return View();
         }
 
-        public IActionResult Design()
+        public IActionResult Communications()
         {
             return View();
         }
 
-        public IActionResult Infrastructure()
+        public IActionResult Ecommerce()
         {
             return View();
         }
 
-        public IActionResult Consulting()
-        {
-            return View();
-        }
-
-        public IActionResult Analytics()
+        public IActionResult Marketing()
         {
             return View();
         }

@@ -36,22 +36,30 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Featured" asp-action="Index">Featured</a>
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Industry" asp-action="Index">Industries</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Solutions" asp-action="Index">Solutions</a>
-                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Feature" asp-action="Index">Featured</a>
+                        </li>*@
+
+                        @*<li class="nav-item">
+                        <a class="nav-link" asp-area="Visitor" asp-controller="Products" asp-action="Index">Products</a>
+                        </li>*@
 
                         <li class="nav-item">
-                            <a class="nav-link " asp-area="Visitor" asp-controller="Services" asp-action="Index">Services</a>
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Index">Services</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <center><img src="/images/web-construction.png" /></center>
+
+
+    <div class="container tainer">
         <main role="main" class="pb-3">
             <partial name="_Notifications" />
             @RenderBody()
@@ -60,14 +68,17 @@
 
     <footer class="border-top border-bottom footer text-muted bg-light">
         <ul class="navbar-nav list-group-horizontal">
+            <li class="nav-item me-4 footstuff">
+                <a class="foot-link" asp-area="Visitor" asp-controller="Company" asp-action="Index">About</a>
+            </li>
             <li class="nav-item me-4">
-                <a class="foot-link" asp-area="Visitor" asp-controller="About" asp-action="Privacy">Privacy</a>
+                <a class="foot-link" asp-area="Visitor" asp-controller="Company" asp-action="Privacy">Privacy</a>
             </li>
             <li class="nav-item ">
-                <a class="foot-link" asp-area="Visitor" asp-controller="About" asp-action="Contact">Contact</a>
+                <a class="foot-link" asp-area="Visitor" asp-controller="Company" asp-action="Contact">Contact</a>
             </li>
-            <li class="offset-sm-10 align-items-end">
-               &copy; 2022 - Smithovision 
+            <li class="align-items-end coprighter">
+               &copy; 2023 Smithovision 
             </li>
         </ul>
     </footer>
