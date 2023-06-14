@@ -28,20 +28,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1 flex-sm-row-reverse">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Application">Application Development</a>
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Desktop">Desktop</a>
                         </li>
-                       @* <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Services" asp-action="Design">UI/UX Design</a>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Web">Web</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Mobile">Mobile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Data">Data</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Desktop">IoT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Web">AR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Mobile">VR</a>
                         </li>*@
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Hosting">Web Hosting</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Consulting">IT Consulting</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Service" asp-action="Analytics">Data Analytics</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -54,19 +60,7 @@
         </main>
     </div>
 
-    <footer class="border-top border-bottom footer text-muted bg-light">
-        <ul class="navbar-nav list-group-horizontal">
-            <li class="nav-item me-4">
-                <a class="foot-link" asp-area="Visitor" asp-controller="About" asp-action="Privacy">Privacy</a>
-            </li>
-            <li class="nav-item ">
-                <a class="foot-link" asp-area="Visitor" asp-controller="About" asp-action="Contact">Contact</a>
-            </li>
-            <li class="offset-sm-10 align-items-end">
-                &copy; 2022 - Smithovision
-            </li>
-        </ul>
-    </footer>
+   
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

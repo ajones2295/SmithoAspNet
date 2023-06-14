@@ -39,5 +39,25 @@ namespace Mvc.Areas.Visitor.Controllers
         {
             return View();
         }
+
+        public IActionResult Desktop()
+        {
+            return View();
+        }
+
+        public IActionResult Web()
+        {
+            return View();
+        }
+
+        public IActionResult Mobile()
+        {
+            return View();
+        }
+
+        public IActionResult Data()
+        {
+            return View();
+        }
     }
 }
