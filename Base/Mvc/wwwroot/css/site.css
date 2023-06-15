@@ -42,6 +42,10 @@ body {
     background-color: var(--white);
 }
 
+.feat {
+    background-color: var(--primary-color);
+}
+
 
 .startSection {
     padding: 40px 40px 40px 40px;
