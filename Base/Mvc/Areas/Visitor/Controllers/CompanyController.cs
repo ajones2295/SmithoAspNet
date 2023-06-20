@@ -16,6 +16,11 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
+        public IActionResult Testimonials()
+        {
+            return View();
+        }
+
         public IActionResult Careers()
         {
             return View();
@@ -52,6 +57,11 @@ namespace Mvc.Areas.Visitor.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Terms()
         {
             return View();
         }

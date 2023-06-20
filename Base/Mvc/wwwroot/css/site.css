@@ -30,6 +30,7 @@ img {
 
 
 body {
+    background-color: var(--primary-color);
     margin-bottom: 60px;
 }
 .box {
@@ -42,8 +43,22 @@ body {
     background-color: var(--white);
 }
 
+ul {
+    list-style: none;
+}
+
+.lister li::before {
+    content: "\2713"; /* Unicode bullet symbol */
+    color: var(--teritary-color); /* Bullet color */
+    /* Optional tweaks */
+    font-weight: bold;
+    padding-right: 10px;
+}
+
 .feat {
-    background-color: var(--primary-color);
+    height: 480px;
+    background-color: var(--secondary-color);
+    margin-top: 0px;
 }
 
 
@@ -161,4 +176,30 @@ body {
 }
 
 .youtube-comm {
+}
+
+
+
+.animated-div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation: animateDiv 2s infinite;
+}
+
+@keyframes animateDiv {
+    0% {
+        transform: scale(1);
+        background-color: red;
+    }
+
+    50% {
+        transform: scale(1.5);
+        background-color: blue;
+    }
+
+    100% {
+        transform: scale(1);
+        background-color: red;
+    }
 }
