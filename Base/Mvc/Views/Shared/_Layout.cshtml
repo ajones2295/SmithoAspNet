@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
 </head>
 <body class="mainBody">
-    <header style="margin-bottom:0">
-        <nav class="bars navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+    <header>
+        <nav class="bars navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow ">
             <div class="container-fluid">
                 <b><a class="logo" asp-area="Visitor" asp-controller="Home" asp-action="Index"><img src="/images/smithocon4.png" alt="smitho icon">Smithovision</a></b>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -40,11 +40,11 @@
                         </li>
 
                         @*<li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Industry" asp-action="Index">Industries</a>
+                        <a class="nav-link" asp-area="Visitor" asp-controller="Industry" asp-action="Index">Industries</a>
                         </li>*@
 
                         @*<li class="nav-item">
-                            <a class="nav-link" asp-area="Visitor" asp-controller="Feature" asp-action="Index">Featured</a>
+                        <a class="nav-link" asp-area="Visitor" asp-controller="Feature" asp-action="Index">Featured</a>
                         </li>*@
 
                         @*<li class="nav-item">
@@ -60,69 +60,148 @@
         </nav>
     </header>
 
-    <div class="feat " style="margin-top:0">
-        <h1>Software Solutions Centered Around Your Needs</h1>
-        <h2>Whether you have a vision for a new digital product or just need a more efficient way of operating, our platform help brings your idea to life</h2>
-        <a class="mainButton" asp-area="Visitor" asp-controller="Service" asp-action="Web">Get Started</a>
-        <p>Want to talk to an expert? <a asp-area="Visitor" asp-controller="Company" asp-action="Sales">Contact sales.</a> </p>
+    <div id="introBoard" class="carousel slide tron-marquee " data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h1>The best day to build your vision was one year ago. The second best is today!</h1>
+                @*<img src="~/images/sadsad.png" width="100%" height="400" alt="intro1">*@
+            </div>
+            <div class="carousel-item">
+                <h1>Unlock infinite opportunites with the latest technology right at your fingertips</h1>
+                @*<img src="~/images/sadsad.png" width="100%" height="400" alt="intro2">*@
+            </div>
+            <div class="carousel-item">
+                <h1>Scale up operations to keep pace with an ever-changing digital enviornment</h1>
+                @*<img src="~/images/sadsad.png" width="100%" height="400" alt="intro3">*@
+            </div>
+            @*<div class="carousel-item">
+            <h1></h1>
+            <imgk src="~/images/sadsad.png" width="100%" height="300" alt="intro4">
+            </div>*@
+        </div>
     </div>
-    <center><img src="/images/web-construction.png" /></center>
 
-    <div class="feat ">
-        <h1>
-            Craft Your Vision
-        </h1>
-        <h1>
-            Craft Your Vision
-        </h1>
-        <h1>
-            Craft Your Vision
-        </h1>
-        <h1>
-            Craft Your Vision
-        </h1>
+    <div class="row header-row">
+        <div class="col-md-6">
+            <div class="header__title">
+                <h1 class="header-title">
+                    Software
+                    <!-- Green highlight effect -->
+                    <span class="highlight">Solutions</span>
+                    Centered <br /> Around
+                    <span class="highlight">Your</span>
+                    Needs
+                </h1>
+            </div>
+            <div class="break-line">
+                Whether you have a vision for a new digital product or just need a more efficient way of
+                operating, our platform help brings your idea to life
+
+                <a class="mainButton" asp-area="Visitor" asp-controller="Service" asp-action="Web">Get Started</a>
+
+                Want to talk to an expert? <a asp-area="Visitor" asp-controller="Company" asp-action="Sales">Contact sales.</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img class="header-image" src="~/images/web-construction.png" alt="intro4">
+        </div>
     </div>
-    <div>
+
+
+
+    <div class="banner-2">
         <h2>
             Build from scratch, or not...
         </h2>
         <h3>Choose from an extensive catalog of reusable requirements and modules of code </h3>
         <h3>Build a custom application from the ground up tailored to your needs</h3>
     </div>
-        
-    <br />
-    <br />
-
-    <div class="advantages">
-        <h4>Quick Start</h4>
-        <p>Streamline the development process by utilizing our growing library of reusable requirements & modules of code</p>
-        
-
-        <h4>Clear and </h4>
-        <p>Professional grade applications </p>
 
 
+
+
+
+
+
+
+
+
+
+
+    <div class="banner-3">
+        <div class="row advantages">
+            @*<center><img src="/images/web-construction.png" /></center>*@
+            <div class="col-md-6 ">
+                <h4>Quick Start</h4>
+                <p>Streamline the development process by utilizing our growing library of reusable requirements & modules of code</p>
+            </div>
+
+            <div class="col-md-6 ">
+                <h4>Clear and </h4>
+                <p>Professional grade applications </p>
+            </div>
+
+        </div>
     </div>
 
 
-    <div class="reasons">
-        <ul class="lister">Own Your Code
-            <li class ="lister"> Access your source code via git</li>
-            <li class="lister"> Host with us or port applications elsewhere</li>
-        </ul>
-
-        <ul class ="lister">
-            Built with trusted open source frameworks
-            <li class ="lister">.Net Core, Android, iOS</li>
-        </ul>
-
-
-        <ul class ="lister">
-            Superior Customer Service
-            <li class="lister">Get an expert assigned to every project </li>
-            <li class="lister">All your questions answered. Get clarity, communication, and a peace of mind</li>
-        </ul>
+    @*
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+    <h4 class="card-title">Primary card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
+    </div>
+    *@
+
+    <div class="banner-4 ">
+        <div class="row reasons">
+
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 40rem;">
+                    <center><div class="card-header">Control</div></center>
+                    <div class="card-body">
+                        <ul class="lister card-title">
+                            Own Your Code
+                            <li class="lister card-text"> Access your source code via git</li>
+                            <li class="lister card-text"> Host with us or port applications elsewhere</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 40rem;">
+                    <center><div class="card-header">Standards</div></center>
+                    <div class="card-body">
+                        <ul class="lister card-title">
+                            Built with trusted open source frameworks
+                            <li class="lister card-text">.Net Core, Android, iOS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 40rem;">
+                    <center><div class="card-header">Control</div></center>
+                    <div class="card-body">
+                        <ul class="lister card-title">
+                            Superior Customer Service
+                            <li class="lister card-text">Get an expert assigned to every project </li>
+                            <li class="lister card-text">All your questions answered. Get clarity and peace of mind</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <br />
+    <br />
 
     <div class="container tainer">
         <main role="main" class="pb-3">
@@ -143,7 +222,7 @@
                 <a class="foot-link" asp-area="Visitor" asp-controller="Company" asp-action="Contact">Contact</a>
             </li>
             <li class="align-items-end coprighter">
-               &copy; 2023 Smithovision 
+                &copy; 2023 Smithovision
             </li>
         </ul>
     </footer>
