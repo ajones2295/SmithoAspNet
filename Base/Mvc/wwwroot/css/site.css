@@ -36,7 +36,9 @@ html {
 
 body {
     background-color: var(--primary-color);
-    margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
+    /*margin-bottom: 60px;*/
 }
 
 .box {
@@ -64,16 +66,31 @@ ul {
 
 .tron-marquee {
     width: 100%;
-    height: 400px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    height: 500px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
+.car1 {
+    /*background-attachment: fixed;*/
+    background-image: src('/images/finger-tech.jpg');
+}
+
+.badges {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    width:25%;
+    height:30%;
+}
+
+.head {
+}
 
 .header-title {
-    margin-left: 70px;
+    color: var(--white);
 }
 .header__title {
+
     flex: 1;
     margin-left: 0px;
     max-width: 115rem;
@@ -86,19 +103,31 @@ ul {
     justify-items: start;
 }
 
+.subTitle {
+    padding-top: 20px;
+}
+
+.subButton {
+    padding-top: 40px;
+}
+
+
 .header-image {
+    
     width: 400px;
     height: 350px;
-    margin-left: 200px;
+    margin-right: 1000px;
 }
 
 .header-row {
+    padding-top: 48px;
     color: var(--white);
     background-color: var(--primary-color);
+    padding-bottom: 48px;
 }
 
 .highlight {
-    position: relative;
+    position:sticky;
 }
 
     .highlight::after {
@@ -115,18 +144,33 @@ ul {
         background-image: var(--gradient-primary);
     }
 
-.break-line {
-    white-space: pre;
-}
-
 
 .banner-1 {
     height: 480px;
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--primary-color);
     /*background-image: var(--gradient-primary);*/
     margin-top: 0px;
     margin-bottom: 0px;
+}
+
+.ban1 {
+    margin-top: 20px;
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
+.ban1-head {
+    color: var(--primary-color)
+}
+
+.ban1-spaceleft {
+    margin-top: 40px;
+    margin-left: 280px;
+}
+
+.ban1-spaceright {
+    margin-right: 10000px;
 }
 
 .banner-2 {
@@ -138,7 +182,7 @@ ul {
 
 .banner-3 {
     height: 480px;
-    background-color: var(--white);
+    background-color: var(--nice-gray);
     margin-top: 0px;
     margin-bottom: 0px;
 }
@@ -162,7 +206,10 @@ ul {
     margin-top: 0px;
 }
 
-
+.vision {
+    padding-left: 80px;
+    padding-right: 80px;
+}
 
 .startSection {
     padding: 40px 40px 40px 40px;
@@ -217,7 +264,7 @@ ul {
 }
 
 .mainButton {
-    /*margin-top: 40px;*/
+    /*margin-top: 20px;*/
     text-decoration: none;
     padding: 0px 8px 0px 8px;
     border-color: var(--secondary-color);
@@ -318,4 +365,40 @@ ul {
     width: 100%;
     height: 100%;
     background-color: #f0f0f0; /* Just for demonstration */
+}
+
+
+
+
+.mycard {
+    width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.mycard-content {
+    margin-top: 20px;
+}
+
+.mycard-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.mycard-text {
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.mycard-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
 }
