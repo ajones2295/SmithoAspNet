@@ -57,11 +57,15 @@ ul {
 
 .lister li::before {
     content: "\2713"; /* Unicode bullet symbol */
-    color: var(--teritary-color); /* Bullet color */
+    color: var(--primary-color); /* Bullet color */
     /* Optional tweaks */
     font-weight: bold;
     padding-right: 10px;
     align-content: flex-start;
+}
+
+.lister li {
+    align-items: flex-start;
 }
 
 .tron-marquee {
@@ -188,17 +192,17 @@ ul {
 }
 
 .banner-3 {
-    height: 480px;
-    background-color: var(--nice-gray);
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.banner-4 {
     height: 520px;
     background-color: var(--primary-color);
     margin-top: 0px;
     margin-bottom: 10px;
+}
+
+.banner-4 {
+    height: 480px;
+    background-color: var(--nice-gray);
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .feat {
@@ -324,8 +328,9 @@ ul {
     margin-top: 40px;
     border-radius: 12px;
     z-index: 8;
+    align-content: start;
     /*border: 1px solid #dddddd;*/
-    /*box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
 }
 
 
