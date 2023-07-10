@@ -11,6 +11,7 @@ namespace Mvc.Configurations
             //CreateMap<ApplicationUser, ApiUser>().ReverseMap();
             //CreateMap<ApplicationUser, ApiRegister>().ReverseMap();
             CreateMap<Category, CategoryVM>().ReverseMap();
+            CreateMap<HomeContact, HomeContactVM>().ReverseMap();
         }
     }
 }

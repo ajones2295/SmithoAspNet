@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.UtilityModels;
+using Models.ViewModels;
 using System.Diagnostics;
 
 namespace Mvc.Areas.Visitor.Controllers
@@ -22,7 +23,18 @@ namespace Mvc.Areas.Visitor.Controllers
             return View();
         }
 
-        public IActionResult Services()
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> HomeContact(HomeContactVM homeContactVM)
+		{
+			if (ModelState.IsValid)
+            {
+                
+            }
+			return RedirectToAction("Index");
+		}
+
+		public IActionResult Services()
         {
             // drop down list containing serives provided such as site maintenence, data analytics, etc..
             // only 3 items then see more button
