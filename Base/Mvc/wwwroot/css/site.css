@@ -8,8 +8,12 @@
     --nice-gray: #f0f0f0;
     --gradient-primary: linear-gradient(to top left, #008E4C, #FFD700);
     --gradient-secondary: linear-gradient(to top left, #FFD700, #008E4C);
+    --tri-gradient: linear-gradient(to right bottom, #191970, #7c0874, #bf0d66, #eb464d, #ff822f, #f19c10, #dcb400, #c0ca15, #94bd28, #6aaf37, #409f43, #008e4c);
     --image-url: url('~/images/web-construction.png');
 }
+
+
+
 
 
 html {

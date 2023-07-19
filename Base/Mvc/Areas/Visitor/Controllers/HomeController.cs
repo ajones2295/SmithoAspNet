@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MailKit.Net.Smtp;
 using Models.UtilityModels;
 using Models.ViewModels;
 using System.Diagnostics;
+using System.Net;
+using Models.DataModels;
+//using System.Net.Mail;
 
 namespace Mvc.Areas.Visitor.Controllers
 {
@@ -10,10 +16,12 @@ namespace Mvc.Areas.Visitor.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmailSender _emailSender;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IEmailSender emailSender)
         {
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -24,17 +32,17 @@ namespace Mvc.Areas.Visitor.Controllers
         }
 
         [HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> HomeContact(HomeContactVM homeContactVM)
-		{
-			if (ModelState.IsValid)
+        [ValidateAntiForgeryToken]
+        public IActionResult HomeContact(HomeContactVM homeContactVM)
+        {
+            if (ModelState.IsValid)
             {
-                
+                MyMessageSender(homeContactVM);
             }
-			return RedirectToAction("Index");
-		}
+            return RedirectToAction("Index");
+        }
 
-		public IActionResult Services()
+        public IActionResult Services()
         {
             // drop down list containing serives provided such as site maintenence, data analytics, etc..
             // only 3 items then see more button
@@ -98,6 +106,47 @@ namespace Mvc.Areas.Visitor.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public void SendEmail(HomeContactVM homeContact)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(homeContact.FirstName, homeContact.EmailAddress));
+            message.To.Add(new MailboxAddress("Jerell", "jerell_smith_09@outlook.com"));
+            message.Subject = "Hello, World!";
+            message.Body = new TextPart("plain") { Text = "This is the email body." };
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, useSsl: true);
+                client.Authenticate("jerell.smith.09@gmail.com", "techComm40!");
+
+                client.Send(message);
+                client.Disconnect(true);
+            }
+        }
+
+
+        public void MyMessageSender(HomeContactVM homeContact)
+        {
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(homeContact.FirstName, homeContact.EmailAddress));
+            message.To.Add(new MailboxAddress("Jerell", "jerell.smith.09@gmail.com"));
+            message.Subject = "How you doin?";
+
+            message.Body = new TextPart("plain")
+            {
+                Text = @"Hey Alice,
+
+                What are you up to this weekend? Monica is throwing one of her parties on
+                Saturday and I was hoping you could make it.
+
+                Will you be my +1?
+
+                -- Joey
+                "
+            };
         }
     }
 }

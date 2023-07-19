@@ -13,12 +13,12 @@ namespace Models.ViewModels
 		public string LastName { get; set; } = string.Empty;
 		
 		[Required]
-		[EmailAddress]
+		[EmailAddress(ErrorMessage = "Please enter a valid email address.")]
 		public string EmailAddress { get; set; } = string.Empty;
 		
 		[Required]
-		[Phone]
-		public string PhoneNumber { get; set; } = string.Empty;
+        [Phone(ErrorMessage = "Please enter a valid phone number.")]
+        public string PhoneNumber { get; set; } = string.Empty;
 		
 		[Required]
 		[MaxLength(100)]

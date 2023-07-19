@@ -44,8 +44,8 @@
     --bs-danger: #ff7851;
     --bs-light: #f8f9fa;
     --bs-dark: #343a40;
-    --bs-primary-rgb: 120, 194, 173;
-    --bs-secondary-rgb: 243, 150, 154;
+    --bs-primary-rgb: 25, 25, 12;
+    --bs-secondary-rgb: 255, 215, 0;
     --bs-success-rgb: 86, 204, 157;
     --bs-info-rgb: 108, 195, 213;
     --bs-warning-rgb: 255, 206, 103;
@@ -2374,7 +2374,7 @@ progress {
     color: #888;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #191970;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2399,7 +2399,7 @@ progress {
 .form-control:focus {
     color: #888;
     background-color: #fff;
-    border-color: #bce1d6;
+    border-color: #191970;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(120, 194, 173, 0.25);
 }
@@ -2615,7 +2615,7 @@ textarea.form-control-lg {
 }
 
 .form-select:focus {
-    border-color: #bce1d6;
+    border-color: #191970;
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(120, 194, 173, 0.25);
 }

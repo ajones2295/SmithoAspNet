@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Models.ViewModels;
+@model HomeContactVM
+
+@{
     ViewData["Title"] = "Smithovision";
 }
 
@@ -8,7 +11,7 @@
         Contact Us
     </h1>
     <h2>
-       Build from scratch, or not...
+        Build from scratch, or not...
     </h2>
 
     <h3>Choose from an extensive catalog of reusable requirements and modules of code </h3>
@@ -26,79 +29,60 @@
 
 
 
-<form method="post" asp-action="Upsert" enctype="multipart/form-data">
-	<input asp-for="Experience.Id" hidden />
-	<input asp-for="Experience.ImageUrl" hidden />
-	<input asp-for="Experience.CreatorId" hidden value=@UserManager.GetUserName(User) />
-	<div class="row">
-		<div class="col-10">
-			<div class="border p-3 mt-4 row">
-				<div class="col-12 pb-2">
-					<h2 class="text-primary">@(Model.Experience.Id != 0 ? "Update" : "Create")  Experience</h2>
-					<hr />
-				</div>
-				<div class="mb-3 col-6">
-					<label asp-for="Experience.Category"></label>
-					<select asp-for="Experience.Category" asp-items="@Model.CategoryList" class="form-select">
-						<option disabled selected>--Select Category--</option>
-					</select>
-					<span asp-validation-for="Experience.Category" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.Title"></label>
-					<input asp-for="Experience.Title" class="form-control" />
-					<span asp-validation-for="Experience.Title" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.Description"></label>
-					<input asp-for="Experience.Description" rows="3" class="form-control" />
-					<span asp-validation-for="Experience.Description" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.Date"></label>
-					<input asp-for="Experience.Date" class="form-control" />
-					<span asp-validation-for="Experience.Date" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.Start"></label>
-					<input asp-for="Experience.Start" class="form-control" />
-					<span asp-validation-for="Experience.Start" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.End"></label>
-					<input asp-for="Experience.End" class="form-control" />
-					<span asp-validation-for="Experience.End" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.Location"></label>
-					<input asp-for="Experience.Location" class="form-control" />
-					<span asp-validation-for="Experience.Location" class="text-danger"></span>
-				</div>
-				<div class="mb-3">
-					<label asp-for="Experience.ImageUrl"></label>
-					<input type="file" id="uploadBox" name="file" class="form-control" />
-				</div>
+<form method="post" asp-action="HomeContact" enctype="multipart/form-data">
 
-				<div class="col-12">
-					@if (Model.Experience.Id != 0)
-					{
-						<button type="submit" class="btn btn-primary" style="width:150px">Update</button>
-					}
-					else
-					{
-						<button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
-					}
-					<a asp-controller="Experience" asp-action="Index" class="btn btn-secondary" style="width:150px">
-						Back to List
-					</a>
-				</div>
+    <div class="row">
+        <div class="col-10">
+            <div class="border p-3 mt-4 row">
+                <div class="mb-3">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="EmailAddress"></label>
+                    <input asp-for="EmailAddress" class="form-control" />
+                    <span asp-validation-for="EmailAddress" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CompanyName"></label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description"></label>
+                    @*<input asp-for="Description" class="form-control" />*@
+                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
 
-			</div>
-		</div>
-		<div class="col-2 pt-4">
-			<img src="@Model.Experience.ImageUrl"
-				 width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
-		</div>
-	</div>
+                <div class="col-12">
+                    <button type="submit" class="mainButton" style="width:150px">Send</button>
+                </div>
 
+            </div>
+        </div>
+    </div>
 </form>
+
+
+<center>
+    <div class="m-4">
+        <h2 class="">Connect With Us</h2>
+        <p>Follow us on social media, we'd love to hear from you!</p>
+        <a href="https://www.facebook.com/smithovision/"><img class="img-rounded m-4" width="50" height="50" src="~/images/Facebook.png" alt="Facebook"></a>
+        <a href="https://twitter.com/smithovision/"><img class="img-rounded m-4" width="50" height="50" src="~/images/twitter.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com/smithovision/"><img class="img-rounded m-4" width="50" height="50" src="~/images/instagram.png" alt="Instagram"></a>
+        <!--<a href="https://www.facebook.com/smithovision/"><img class="SML" src="Media/pinterest.png" alt="SnapChat"></a>-->
+    </div>
+</center>
