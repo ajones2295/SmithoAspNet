@@ -1,6 +1,7 @@
 ﻿using Mailjet.Client;
 using Mailjet.Client.Resources;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Models.UtilityModels;
 using Newtonsoft.Json.Linq;
 
 namespace Mvc.Configurations.MailJet
@@ -9,6 +10,9 @@ namespace Mvc.Configurations.MailJet
     {
         private readonly IConfiguration _configuration;
         private readonly ILogger<MailJetEmailSender> _logger;
+        private readonly string businessEmail = "jerell.smith.09@gmail.com"; // replace with inquiry@smithovision.com
+        private readonly string formInquiryEmail = "lakeboy7824@protonmail.com";
+        private readonly string formInquiryName = "New Client Inquiry";
 
         public MailJetOptions _mailJetOptions;
         public MailJetEmailSender(IConfiguration configuration, ILogger<MailJetEmailSender> logger)
@@ -16,7 +20,7 @@ namespace Mvc.Configurations.MailJet
             _logger = logger;
             _configuration = configuration;
         }
-        public async Task SendEmailAsync(string email, string subject, string htmlMessage)
+        public async Task SendEmailAsync(string email, string formType, string htmlMessage)
         {
             _mailJetOptions = _configuration.GetSection("MailJet").Get<MailJetOptions>();
 
@@ -25,10 +29,10 @@ namespace Mvc.Configurations.MailJet
             {
                 Resource = Send.Resource,
             }
-            .Property(Send.FromEmail, "lakeboy7824@protonmail.com")
-            .Property(Send.FromName, "MailJet Sender")
-            .Property(Send.To, email)
-            .Property(Send.Subject, subject)
+            .Property(Send.FromEmail, SD.FORM_EMAIL_SENDER)  // replace with inquiry@smithovision.com
+            .Property(Send.FromName, formType)
+            .Property(Send.To, SD.FORM_EMAIL_RECEIVER)
+            .Property(Send.Subject, formInquiryName)
             .Property(Send.HtmlPart, htmlMessage);
 
             await client.PostAsync(request);

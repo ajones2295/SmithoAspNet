@@ -8,6 +8,10 @@
         public const string DEV_USER = "dev@test.com";
         public const string DEFAULT_USER1 = "user1@test.com";
         public const string DEFAULT_USER2 = "user2@test.com";
+        
+
+        public const string FORM_EMAIL_SENDER = "lakeboy7824@protonmail.com";
+        public const string FORM_EMAIL_RECEIVER = "jerell.smith.09@gmail.com";
 
 
         public const string Role_User_Visitor = "User";

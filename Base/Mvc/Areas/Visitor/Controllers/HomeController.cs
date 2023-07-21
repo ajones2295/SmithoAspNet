@@ -35,12 +35,16 @@ namespace Mvc.Areas.Visitor.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult HomeContact(HomeContactVM homeContactVM)
         {
+            string formType = "Home Contact Form";
+
             if (ModelState.IsValid)
             {
-                MyMessageSender(homeContactVM);
+                _emailSender.SendEmailAsync(SD.FORM_EMAIL_SENDER, formType, HomeMessageBuilder(homeContactVM));
             }
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
+
+        
 
         public IActionResult Services()
         {
@@ -107,46 +111,15 @@ namespace Mvc.Areas.Visitor.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-
-        public void SendEmail(HomeContactVM homeContact)
+        
+        private string HomeMessageBuilder(HomeContactVM homeContactInfo)
         {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(homeContact.FirstName, homeContact.EmailAddress));
-            message.To.Add(new MailboxAddress("Jerell", "jerell_smith_09@outlook.com"));
-            message.Subject = "Hello, World!";
-            message.Body = new TextPart("plain") { Text = "This is the email body." };
-
-            using (var client = new SmtpClient())
-            {
-                client.Connect("smtp.gmail.com", 587, useSsl: true);
-                client.Authenticate("jerell.smith.09@gmail.com", "techComm40!");
-
-                client.Send(message);
-                client.Disconnect(true);
-            }
-        }
-
-
-        public void MyMessageSender(HomeContactVM homeContact)
-        {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(homeContact.FirstName, homeContact.EmailAddress));
-            message.To.Add(new MailboxAddress("Jerell", "jerell.smith.09@gmail.com"));
-            message.Subject = "How you doin?";
-
-            message.Body = new TextPart("plain")
-            {
-                Text = @"Hey Alice,
-
-                What are you up to this weekend? Monica is throwing one of her parties on
-                Saturday and I was hoping you could make it.
-
-                Will you be my +1?
-
-                -- Joey
-                "
-            };
+            string message = "New inquiry from " + homeContactInfo.FirstName + " " + homeContactInfo.LastName + "." + "<br />" + "<br />" +
+                             "Email Address: " + homeContactInfo.EmailAddress + "<br />" +
+                             "Phone Number: " + homeContactInfo.PhoneNumber + "<br />" +
+                             "Comapany Name: " + homeContactInfo.CompanyName + "<br />" +
+                             "Description: " + homeContactInfo.Description + "<br />";
+            return message;
         }
     }
 }
