@@ -20,6 +20,10 @@ html {
     font-size: 14px;
 }
 
+.formLabel {
+    text-align: start;
+    margin-right: 4000px;
+}
 
 @media (min-width: 768px) {
     html {

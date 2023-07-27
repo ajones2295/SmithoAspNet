@@ -19,51 +19,51 @@
 </center>
 
 
-<form method="post" asp-action="HomeContact" enctype="multipart/form-data">
+<center><form method="post" asp-action="HomeContact" enctype="multipart/form-data">
 
     <div class="row">
         <div class="col-10">
             <div class="border p-3 mt-4 row">
                 <div class="mb-3">
-                    <label asp-for="FirstName"></label>
+                        <label asp-for="FirstName" class="formLabel"></label>
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="LastName"></label>
+                        <label asp-for="LastName" class="formLabel"></label>
                     <input asp-for="LastName" class="form-control" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="EmailAddress"></label>
+                        <label asp-for="EmailAddress" class="formLabel"></label>
                     <input asp-for="EmailAddress" class="form-control" />
                     <span asp-validation-for="EmailAddress" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="PhoneNumber"></label>
+                        <label asp-for="PhoneNumber" class="formLabel"></label>
                     <input asp-for="PhoneNumber" class="form-control" />
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="CompanyName"></label>
+                        <label asp-for="CompanyName" class="formLabel"></label>
                     <input asp-for="CompanyName" class="form-control" />
                     <span asp-validation-for="CompanyName" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <label asp-for="Description"></label>
+                        <label asp-for="Description" class="formLabel"></label>
                     @*<input asp-for="Description" class="form-control" />*@
                     @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
 
                 <div class="col-12">
-                    <button type="submit" class="mainButton" style="width:150px">Send</button>
+                    <center><button type="submit" class="mainButton" style="width:150px">Send</button></center>
                 </div>
 
             </div>
         </div>
     </div>
-</form>
+</form></center>
 
 
 <center>
